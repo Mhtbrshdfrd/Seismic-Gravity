@@ -31,8 +31,11 @@ This file is a quick manual for using the provided codes and input files in this
 # Seismic_forward:
 
 The run scripts are provided for forward modelling of seismic traveltimes with three applications:
+
 - Straight_ray_tracing.m: Used for well-tie tomography modelling
+
 - Refracted_ray_tracing.m: Used for tracing refracted models (only for shallow structures)
+
 - Full_waveform.m: Quick script that is used to model full-waveform of reflection seismic datasets 
 (for more details refer too : Crewes, R., Grechka, V., & Wiggins, R. (2019). CREWES Matlab Toolbox. 
 Retrieved from https://www.crewes.org/ResearchLinks/SoftwareLinks/CREWESMatlabToolbox))
@@ -47,9 +50,12 @@ Retrieved from https://www.crewes.org/ResearchLinks/SoftwareLinks/CREWESMatlabTo
 # Synthetic_seismic: 
 
 An alternative fast way to generate synthetic seismic datasets in time and depth domain
-synthetic_depth.py:  Quick way to generate seismic sections from initial AI model(in depth)
-Migration_depth_to_time.py: Image ray technique to transform the synthetic depth section to time domain
-RunScript_test.py: A sample script on using the functions
+
+- synthetic_depth.py:  Quick way to generate seismic sections from initial AI model(in depth)
+
+- Migration_depth_to_time.py: Image ray technique to transform the synthetic depth section to time domain
+
+- RunScript_test.py: A sample script on using the functions
 
 
 
@@ -60,9 +66,12 @@ RunScript_test.py: A sample script on using the functions
 
 # Seismic_inversion: 
 The script is provided for AI inversion along a seismic section in Boulia region
-AI_inversion.py: main script for AI inversion
-bresenham.py: Nothing but a function for extracting traces of seismics in 2D
-depth_to_time_utils.py: Functions for image-ray and modelling ray techniques
+
+- AI_inversion.py: main script for AI inversion
+
+- bresenham.py: Nothing but a function for extracting traces of seismics in 2D
+
+- depth_to_time_utils.py: Functions for image-ray and modelling ray techniques
 
 
 
@@ -73,14 +82,17 @@ depth_to_time_utils.py: Functions for image-ray and modelling ray techniques
 
 # Deep_learning: 
 
-Autoencoder.py: Quick CNN model for recreating seismic images from time to depth
-Forward_Noddy: Used on Noddy generated models to fast forward seismic and gravity datasets 
-(Refer to https://essd.copernicus.org/articles/14/381/2022/ for more information about Noddyverse datasets)
-input_mvcnn.py: This script has been generated to save required input files for CNN purposes for both seismic and gravity datasets
+- Autoencoder.py: Quick CNN model for recreating seismic images from time to depth
+  Forward_Noddy: Used on Noddy generated models to fast forward seismic and gravity datasets 
+  (Refer to https://essd.copernicus.org/articles/14/381/2022/ for more information about Noddyverse datasets)
+  
+- input_mvcnn.py: This script has been generated to save required input files for CNN purposes for both seismic and gravity datasets
+
 
 - For the mvcnn code we refer to the https://github.com/jongchyisu/mvcnn_pytorch which has been utilised for training 
-Input datasets for training before processing are available and could be accessed from: https://zenodo.org/record/7611550#.Y-DgAXbP2Hs.
-The trained models are provided in the input datasets directory of this repository
+  Input datasets for training before processing are available and could be accessed from: https://zenodo.org/record/7611550#.Y-DgAXbP2Hs.
+  The trained models are provided in the input datasets directory of this repository
 
-Two notebooks: 1- load-model-2022-11-18.ipynb and 2 - test_samples.ipynb are used for loading the trained models and testing the trained networks respectively. 
+
+- Two notebooks: 1- load-model-2022-11-18.ipynb and 2 - test_samples.ipynb are used for loading the trained models and testing the trained networks respectively. 
 
