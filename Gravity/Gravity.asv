@@ -1,0 +1,96 @@
+% Creating input files for Tomofast-x along with Gravity forward modelling
+
+% Example from Yamarna Terrane in WA - Data and model are used for level
+% set inversion  + Tomofast-x
+
+d_size_mesh = 500; 
+nx = 180;
+ny = 80;
+nz = 20;
+x_min = 535000;
+x_max = 625000;
+y_min = 6860000;
+y_max = 6900000;
+z_min = 0.000000;
+z_max = 10000;
+step = 1; % sampling the data points  keep this as 1 and then instead use line 59 and .. for sampling
+pad = 15; % number of cells as padding
+
+                               % load files %
+load('C:\Users\\dens_const_prior10.mat','dens_const_prior10')  % grid density
+path_2 = 'C:\Users\\';   % data file path
+Grav_data_and_coor =dlmread([path_2 'yamarna_up_10k_re.xyz']);  % data file
+
+dens_const = dens_const_prior10;
+unique(dens_const);
+dens_const(dens_const==-100)=-30;
+dens_const(dens_const==100)=20;
+dens_const(dens_const==140)=180;
+dens_const(dens_const==30)=80;
+dens_const(dens_const==160)=200;
+
+% make grid %
+Model_f = tomofast_grid(dens_const,nx,ny,nz,x_min,x_max,y_min,y_max,z_min,z_max,d_size_mesh);
+model = Model_f;
+XX = (model(:,1) + model(:,2))/2;
+YY = (model(:,3) + model(:,4))/2;
+ZZ = (model(:,5) + model(:,6))/2;
+X = reshape(XX,ny,nx,nz);
+Y = reshape(YY,ny,nx,nz);
+Z = reshape(ZZ,ny,nx,nz);
+
+% save grids
+save('C:\Users\\3d_grid.mat','X','Y','Z','d_size_mesh');
+save('C:\Users\\dens_const.mat','dens_const');
+save('C:\Users\\Model_f.mat','Model_f');
+fid  =fopen('C:\Users\\3d_grid.txt','wt');
+fprintf(fid,'%g\t',length(Model_f(:,1)));
+fprintf(fid,'\n');
+for i = 1:size(Model_f,1)
+    fprintf(fid,'%g\t',Model_f(i,:));
+    fprintf(fid,'\n');
+end
+fclose(fid);
+
+
+
+% add padding
+[new_data,Xdata,Ydata,Zdata,data,n_data] = Grav_data_cut(Grav_data_and_coor,pad, d_size_mesh,step,x_min,x_max,y_min,y_max);                           
+figure;scatter3(new_data(:,1),new_data(:,2),new_data(:,3),30,data,'filled');
+data = reshape(data,149,49);
+figure;imagesc((data));
+
+
+data = imresize(data,[50 20],'nearest');
+data = reshape(data,1000,1);
+% 
+Xdata = reshape(Xdata,149,49);
+Xdata = imresize(Xdata,[50 20],'nearest');
+Xdata = reshape(Xdata,1000,1);
+% 
+Ydata = reshape(Ydata,149,49);
+Ydata = imresize(Ydata,[50 20],'nearest');
+Ydata = reshape(Ydata,1000,1);
+% 
+Zdata = reshape(Zdata,149,49);
+Zdata = imresize(Zdata,[50 20],'nearest');
+Zdata = reshape(Zdata,1000,1);
+% 
+new_data = [Xdata Ydata Zdata data];
+n_data = 1000; 
+
+fid = fopen('C:\Users\\grav_data_val.txt','wt');
+fprintf(fid,'%g\t',n_data);
+fprintf(fid,'\n');
+for i = 1:size(new_data,1)
+    fprintf(fid,'%g\t',new_data(i,:));
+    fprintf(fid,'\n');
+end
+fclose(fid);
+
+% gravity forward - sensitivity for level set
+Jac_Z = jac_z(Xdata,Ydata,Zdata,X,Y,Z,nx,ny,nz,d_size_mesh);
+
+
+
+
