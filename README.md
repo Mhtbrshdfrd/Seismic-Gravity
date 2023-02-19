@@ -17,7 +17,7 @@ The scripts and files in this repository are partly associted with the project p
   
 - Mahtab Rashidifard, Jérémie Giraud, Mark Lindsay, Mark Jessell, & Vitaliy Ogarko. (2021). Constrained 3D geometric gravity inversion
   [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4747913  
-######################################################################################################################################################
+
 
 
 
@@ -27,7 +27,7 @@ The scripts and files in this repository are partly associted with the project p
 # README:
 This file is a quick manual for using the provided codes and input files in this repository
 
-######################################################################################################################################################
+
 # Seismic_forward:
 
 The run scripts are provided for forward modelling of seismic traveltimes with three applications:
@@ -36,41 +36,41 @@ The run scripts are provided for forward modelling of seismic traveltimes with t
 - Full_waveform.m: Quick script that is used to model full-waveform of reflection seismic datasets 
 (for more details refer too : Crewes, R., Grechka, V., & Wiggins, R. (2019). CREWES Matlab Toolbox. 
 Retrieved from https://www.crewes.org/ResearchLinks/SoftwareLinks/CREWESMatlabToolbox))
-######################################################################################################################################################
 
 
 
 
 
 
-######################################################################################################################################################
+
+
 # Synthetic_seismic: 
 
 An alternative fast way to generate synthetic seismic datasets in time and depth domain
 synthetic_depth.py:  Quick way to generate seismic sections from initial AI model(in depth)
 Migration_depth_to_time.py: Image ray technique to transform the synthetic depth section to time domain
 RunScript_test.py: A sample script on using the functions
-######################################################################################################################################################
 
 
 
 
 
 
-######################################################################################################################################################
+
+
 # Seismic_inversion: 
 The script is provided for AI inversion along a seismic section in Boulia region
 AI_inversion.py: main script for AI inversion
 bresenham.py: Nothing but a function for extracting traces of seismics in 2D
 depth_to_time_utils.py: Functions for image-ray and modelling ray techniques
-######################################################################################################################################################
 
 
 
 
 
 
-######################################################################################################################################################
+
+
 # Deep_learning: 
 
 Autoencoder.py: Quick CNN model for recreating seismic images from time to depth
@@ -83,4 +83,4 @@ Input datasets for training before processing are available and could be accesse
 The trained models are provided in the input datasets directory of this repository
 
 Two notebooks: 1- load-model-2022-11-18.ipynb and 2 - test_samples.ipynb are used for loading the trained models and testing the trained networks respectively. 
-########################################################################################################################################################
+
