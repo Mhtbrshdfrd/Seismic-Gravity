@@ -65,6 +65,7 @@ An alternative fast way to generate synthetic seismic datasets in time and depth
 
 
 # Seismic_inversion: 
+
 The script is provided for AI inversion along a seismic section in Boulia region
 
 - AI_inversion.py: main script for AI inversion
@@ -77,6 +78,17 @@ The script is provided for AI inversion along a seismic section in Boulia region
 
 
 
+
+# Gravity:
+
+Gravity.m: is the main script to run, which generate the model grid and datasets files of Yamarna Terrane in WA. This includes:
+- model and data grid file for input to Tomofast-x inversion platform (refer to:"Ogarko, Vitaliy, Jeremie Giraud, and Roland Martin. "Tomofast-x v1. 0 source code." Zenodo (2021).")
+  and "Giraud, J., Ogarko, V., Martin, R., Jessell, M. and Lindsay, M., 2021. Structural, petrophysical, and geological constraints in potential field inversion using the Tomofast-x v1.
+  0 open-source code. Geoscientific Model Development, 14(11), pp.6681-6709."
+  
+- forward modelling of gravity datasets
+
+- Extract grid and model along seismic profiles
 
 
 
