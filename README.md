@@ -5,6 +5,10 @@ The scripts and files in this repository are partly associted with the project p
 
 
 # To cite:
+
+- [![DOI](https://zenodo.org/badge/603344068.svg)](https://zenodo.org/badge/latestdoi/603344068)
+
+
 - Rashidifard, M., Giraud, J., Lindsay, M., Jessell, M. and Ogarko, V.: Constraining 3D geometric gravity inversion with 2D reflection seismic profile 
   using a generalized level-set approach: application to Eastern Yilgarn craton, Solid Earth Discuss., 1–35, doi:10.5194/se-2021-65, 2021.
 
